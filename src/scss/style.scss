@@ -1,0 +1,142 @@
+@use "./abstracts/" as *;
+
+/* ---- FOR DISPLAY ONLY ---- */
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+/* ---- FOR DISPLAY ONLY ---- */
+
+.inner {
+  margin-inline: auto;
+
+  max-width: 90%;
+}
+
+body {
+  font-family: var(--font-family-alternate);
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-accent-400);
+}
+
+h2 {
+  font-size: var(--fs-700);
+
+  @include breakpoint {
+    font-size: 2.2rem;
+  }
+}
+
+:is(h2, .value) {
+  color: var(--clr-neutral-100);
+
+  font-weight: var(--fw-bold);
+}
+
+mark {
+  color: var(--clr-primary);
+  background: none;
+}
+
+.card {
+  flex-direction: column;
+
+  background-color: var(--clr-secondary);
+
+  text-align: center;
+  letter-spacing: 0.6px;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include breakpoint {
+    flex-direction: row-reverse;
+    max-width: 80%;
+
+    text-align: start;
+  }
+
+  &--image {
+    background-color: var(--clr-primary);
+
+    & > img {
+      mix-blend-mode: multiply;
+      opacity: 0.75;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &--content {
+    padding: 2rem 1.5rem;
+
+    @include breakpoint {
+      flex: 1;
+
+      padding: 5rem 5rem 4rem 5rem;
+    }
+  }
+}
+
+.content {
+  &--text {
+    margin-block-end: 2rem;
+
+    @include breakpoint {
+      margin-block-end: 5rem;
+    }
+
+    p {
+      margin-block-start: 1rem;
+
+      font-size: var(--fs-300);
+      font-weight: var(--fw-extra-light);
+      line-height: 1.75;
+
+      @include breakpoint {
+        margin-block-start: 1.5rem;
+        padding-inline-end: 2rem;
+
+        font-size: var(--fs-400);
+      }
+    }
+  }
+
+  &--stats {
+    gap: 1.5rem;
+
+    @include breakpoint {
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    span {
+      display: block;
+    }
+
+    .value {
+      margin-block-end: 0.5rem;
+
+      font-size: var(--fs-600);
+
+      @include breakpoint {
+        font-size: var(--fs-700);
+      }
+    }
+
+    .property {
+      color: var(--clr-neutral-400);
+
+      font-family: var(--font-family-default);
+      font-size: var(--fs-200);
+      font-weight: var(--fw-light);
+      text-transform: uppercase;
+
+      @include breakpoint {
+        font-size: var(--fs-300);
+      }
+    }
+  }
+}
